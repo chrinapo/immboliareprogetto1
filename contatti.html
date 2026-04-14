@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti — Materika Costruzioni</title>
+  <meta name="description" content="Contatta Materika Costruzioni per un sopralluogo gratuito. Siamo a tua disposizione per nuove costruzioni, ristrutturazioni e rifacimento tetti nelle province di Como, Milano, Monza e Brianza." />
+  <link rel="icon" href="https://www.materikacostruzioni.it/images/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── Page hero ── */
+    .page-hero {
+      height: 40vh;
+      min-height: 320px;
+      padding-top: var(--nav-height);
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 56px;
+      position: relative;
+      overflow: hidden;
+      background: var(--color-anthracite);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(20,20,20,.3) 0%, rgba(20,20,20,.65) 100%);
+      z-index: 1;
+    }
+    .page-hero-img {
+      position: absolute; inset: 0;
+      background-image: url('https://www.materikacostruzioni.it/images/materika/cantiere1.jpg');
+      background-size: cover; background-position: center;
+      opacity: .45;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+    .page-hero-label {
+      font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--color-gold-light); margin-bottom: 12px; display: block;
+    }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+
+    /* ── Contact section ── */
+    .contact-section {
+      padding: 80px 0 100px;
+      background: var(--color-white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+    }
+
+    /* Left column */
+    .contact-info h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin: 0 0 40px;
+    }
+
+    .contact-detail {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .contact-detail-label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+      width: 80px;
+    }
+    .contact-detail-value {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .contact-detail-value a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    .contact-detail-value a:hover {
+      color: var(--color-gold);
+    }
+
+    .contact-socials {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-socials-label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .contact-socials-icons {
+      display: flex;
+      gap: 12px;
+    }
+    .social-icon {
+      width: 42px; height: 42px;
+      background: var(--color-anthracite);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .social-icon:hover { background: var(--color-gold); }
+    .social-icon svg {
+      width: 18px; height: 18px;
+      fill: #fff;
+    }
+
+    /* Right column — form */
+    .contact-form-wrap {}
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      background: #f2f2f0;
+      border: 1.5px solid transparent;
+      border-radius: 10px;
+      font-size: .95rem;
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color .2s, background .2s;
+      box-sizing: border-box;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #aaa;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--color-gold);
+      background: #faf9f7;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 148px;
+    }
+
+    .form-row .form-group { margin-bottom: 0; }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--color-anthracite);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover {
+      background: var(--color-gold);
+      transform: translateY(-1px);
+    }
+
+    /* ── Map strip ── */
+    .map-strip {
+      height: 380px;
+      background: #e8e6e1;
+      overflow: hidden;
+    }
+    .map-strip iframe {
+      width: 100%; height: 100%;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    /* ── Info band ── */
+    .info-band {
+      background: var(--color-cream);
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      padding: 48px 0;
+    }
+    .info-band-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    @media (max-width: 720px) {
+      .info-band-grid { grid-template-columns: 1fr; }
+      .info-band-item { border-right: none !important; border-bottom: 1px solid rgba(0,0,0,.08); }
+      .info-band-item:last-child { border-bottom: none; }
+    }
+    .info-band-item {
+      padding: 24px 36px;
+      border-right: 1px solid rgba(0,0,0,.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .info-band-item:last-child { border-right: none; }
+    .info-band-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: rgba(184,151,106,.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info-band-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--color-gold); fill: none; stroke-width: 1.5;
+    }
+    .info-band-title { font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
+    .info-band-text { font-size: .82rem; color: var(--color-text-muted); line-height: 1.5; }
+    .info-band-text a { color: var(--color-text-muted); text-decoration: none; }
+    .info-band-text a:hover { color: var(--color-gold); }
+
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="site-header" id="top">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Links/Logo/logo_logo-black.svg" alt="Materika Costruzioni" class="nav-logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+        <li><a href="proposte-immobiliari.html" class="nav-link">Proposte Immobiliari</a></li>
+        <li class="nav-dropdown">
+          <a href="index.html#servizi" class="nav-link">
+            Servizi
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="nuove-costruzioni.html">Nuove Costruzioni</a>
+            <a href="ristrutturazioni.html">Ristrutturazioni</a>
+            <a href="rifacimento-tetti.html">Rifacimento Tetti</a>
+            <a href="showroom.html">Showroom</a>
+          </div>
+        </li>
+        <li><a href="contatti.html" class="nav-link nav-cta">Contattaci</a></li>
+      </ul>
+
+      <button class="hamburger" aria-label="Menu">
+        <span class="hamburger-bars"><span></span><span></span><span></span></span>
+        <span class="hamburger-close">✕</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" role="dialog" aria-label="Menu mobile">
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi Siamo</a>
+  <a href="proposte-immobiliari.html">Proposte Immobiliari</a>
+  <div class="mobile-nav-dropdown">
+    <button class="mobile-nav-dropdown-toggle" aria-expanded="false">
+      Servizi
+      <svg class="mobile-nav-arrow" viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke="currentColor" fill="none">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div class="mobile-nav-dropdown-menu">
+      <a href="nuove-costruzioni.html">Nuove Costruzioni</a>
+      <a href="ristrutturazioni.html">Ristrutturazioni</a>
+      <a href="rifacimento-tetti.html">Rifacimento Tetti</a>
+      <a href="showroom.html">Showroom</a>
+    </div>
+  </div>
+  <a href="contatti.html">Contattaci</a>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-img"></div>
+  <div class="container">
+    <span class="page-hero-label">Materika Costruzioni</span>
+    <h1>Contattaci</h1>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ INFO BAND ═══════════════════════════ -->
+<!-- Info band removed -->
+
+<!-- ═══════════════════════════ CONTACT SECTION ═══════════════════════════ -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="contact-info">
+        <h2>Mettiti in contatto</h2>
+
+        <div class="contact-detail">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">
+            <a href="mailto:info@materikacostruzioni.it">info@materikacostruzioni.it</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-label">Telefono</div>
+          <div class="contact-detail-value">
+            <a href="tel:+390296342233">+39 02 96342233</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-label">Indirizzo</div>
+          <div class="contact-detail-value">
+            Via XX Settembre 45<br>
+            22069 Rovellasca (CO)<br>
+            Italia
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <div class="contact-socials-label">Seguici</div>
+          <div class="contact-socials-icons">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/materika_costruzioni/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/people/Materika-Srl/61574725111945/?mibextid=wwXIfr&rdid=CywQjHUwpiUlensB&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BzeMJk2CQ%2F%3Fmibextid%3DwwXIfr" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap">
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 40px;">Inviaci un messaggio</h2>
+
+        <div id="form-success" style="display:none; padding:24px 28px; background:#f0faf4; border:1.5px solid #4caf85; border-radius:12px; margin-bottom:24px;">
+          <p style="margin:0; font-size:1rem; font-weight:600; color:#2d7a57;">Messaggio inviato!</p>
+          <p style="margin:6px 0 0; font-size:.9rem; color:#3a8c65;">Ti risponderemo al più presto. Grazie per averci contattato.</p>
+        </div>
+
+        <div id="form-error" style="display:none; padding:24px 28px; background:#fff5f5; border:1.5px solid #e57373; border-radius:12px; margin-bottom:24px;">
+          <p style="margin:0; font-size:1rem; font-weight:600; color:#c0392b;">Errore nell'invio.</p>
+          <p style="margin:6px 0 0; font-size:.9rem; color:#c0392b;">Si prega di riprovare o di contattarci direttamente via email.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nuovo messaggio dal sito Materika Costruzioni" />
+          <input type="hidden" name="_language" value="it" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Il tuo nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Nome completo" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Indirizzo email</label>
+              <input type="email" id="email" name="email" placeholder="La tua email" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Scrivi qualcosa..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">Invia Messaggio</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MAP ═══════════════════════════ -->
+<div class="map-strip">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.3!2d9.0536!3d45.6567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786b8b8b8b8b8b8%3A0x0!2sVia+XX+Settembre+45%2C+22069+Rovellasca+CO!5e0!3m2!1sit!2sit!4v1"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Mappa sede Materika Costruzioni">
+  </iframe>
+</div>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+
+      <!-- Brand block -->
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="Links/Logo/logo_logo-white.svg" alt="Materika Costruzioni" class="nav-logo-img" />
+        </a>
+        <p>Oltre 30 anni di esperienza in costruzioni chiavi in mano e ristrutturazioni nelle province lombarde.</p>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Via XX Settembre 45, 22069 Rovellasca CO</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.07 2.82 2 2 0 012.06 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+390296342233">+39 02 96342233</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@materikacostruzioni.it">info@materikacostruzioni.it</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link columns -->
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="proposte-immobiliari.html">Proposte Immobiliari</a></li>
+            <li><a href="index.html#servizi">Servizi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="nuove-costruzioni.html">Nuove Costruzioni</a></li>
+            <li><a href="ristrutturazioni.html">Ristrutturazioni</a></li>
+            <li><a href="rifacimento-tetti.html">Rifacimento Tetti</a></li>
+            <li><a href="showroom.html">Showroom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <ul>
+            <li><a href="chi-siamo.html">La Nostra Storia</a></li>
+            <li><a href="chi-siamo.html#valori">I Nostri Valori</a></li>
+            <li><a href="proposte-immobiliari.html">Progetti Recenti</a></li>
+            <li><a href="contatti.html">Lavora con Noi</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 <strong style="color:rgba(255,255,255,.7)">Materika srl</strong> — P.IVA: 04161360138 | REA: CO-424253 | Cap. soc. 20.000€</span>
+      <a href="#">Privacy &amp; Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Contact form — AJAX submission via Formspree
+  const contactForm = document.getElementById('contact-form');
+  const btnSubmit   = document.getElementById('btn-submit');
+  const formSuccess = document.getElementById('form-success');
+  const formError   = document.getElementById('form-error');
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    formSuccess.style.display = 'none';
+    formError.style.display   = 'none';
+
+    btnSubmit.disabled    = true;
+    btnSubmit.textContent = 'Invio in corso…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method:  'POST',
+        body:    new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        formError.style.display = 'block';
+      }
+    } catch (err) {
+      formError.style.display = 'block';
+    } finally {
+      btnSubmit.disabled    = false;
+      btnSubmit.textContent = 'Invia Messaggio';
+    }
+  });
+</script>
+
+</body>
+</html>
