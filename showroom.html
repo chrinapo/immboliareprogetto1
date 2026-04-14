@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showroom Materika — Rivestimenti, Pavimenti e Serramenti a Rovellasca (CO)</title>
+  <meta name="description" content="Visita il nostro showroom a Rovellasca: esposizione esclusiva di rivestimenti, pavimenti e serramenti con consulenza architettonica personalizzata. Raggiungibile da Como, Milano, Varese e tutta la Lombardia." />
+  <link rel="icon" href="https://www.materikacostruzioni.it/images/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── Page hero ── */
+    .page-hero {
+      height: 70vh;
+      min-height: 520px;
+      padding-top: var(--nav-height);
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; animation: heroFade 24s infinite;
+    }
+    .hero-slide:nth-child(1) { animation-delay:  0s; background-image: url('https://www.materikacostruzioni.it/images/materika/interior-design.jpg'); }
+    .hero-slide:nth-child(2) { animation-delay:  6s; background-image: url('https://www.materikacostruzioni.it/images/materika/interior-design-saronno.jpg'); }
+    .hero-slide:nth-child(3) { animation-delay: 12s; background-image: url('https://www.materikacostruzioni.it/images/materika/ristrutturazione-rovellasca1.jpg'); }
+    .hero-slide:nth-child(4) { animation-delay: 18s; background-image: url('https://www.materikacostruzioni.it/images/materika/nuovi-appartamenti-Turate.jpg'); }
+    @keyframes heroFade {
+      0%   { opacity: 0; }
+      5%   { opacity: .3; }
+      20%  { opacity: .3; }
+      25%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,18,15,.35) 0%, rgba(20,18,15,.72) 100%);
+      z-index: 1;
+    }
+    .page-hero .container { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(208,172,128,.18);
+      border: 1px solid rgba(208,172,128,.45);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--color-gold-light);
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--color-gold);
+    }
+    .page-hero h1 {
+      color: var(--color-white);
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+    }
+    .page-hero h1 em { color: var(--color-gold-light); font-style: normal; }
+    .hero-sub {
+      color: rgba(255,255,255,.72);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-location {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.6);
+      font-size: .85rem;
+    }
+    .hero-location svg { width: 16px; height: 16px; stroke: var(--color-gold); fill: none; stroke-width: 1.8; }
+
+    /* ── Intro strip ── */
+    .intro-strip { background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,.06); }
+    .intro-strip-inner {
+      display: flex; gap: 56px; align-items: center; padding: 48px 0;
+    }
+    .intro-strip-text { flex: 1; }
+    .intro-strip-text h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      margin-bottom: 14px;
+    }
+    .intro-strip-text p {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .intro-strip-stats { display: flex; gap: 0; flex-shrink: 0; border-left: 1px solid var(--color-border); }
+    .intro-stat {
+      text-align: center;
+      padding: 0 36px;
+      border-right: 1px solid var(--color-border);
+    }
+    .intro-stat:last-child { border-right: none; }
+    .intro-stat-n {
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--color-gold); line-height: 1;
+    }
+    .intro-stat-l {
+      font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--color-text-muted); margin-top: 6px; line-height: 1.4;
+    }
+    @media (max-width: 900px) {
+      .intro-strip-inner { flex-direction: column; gap: 36px; }
+      .intro-strip-stats { border-left: none; border-top: 1px solid var(--color-border); padding-top: 36px; width: 100%; justify-content: center; }
+    }
+
+    /* ── Material showcase ── */
+    .material-tabs {
+      display: flex; gap: 8px;
+      justify-content: center;
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: 48px;
+    }
+    .material-tab {
+      padding: 14px 28px;
+      font-size: .88rem; font-weight: 600; letter-spacing: -.01em;
+      color: var(--color-text-muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: none; border-top: none; border-left: none; border-right: none;
+      font-family: inherit;
+    }
+    .material-tab:hover { color: var(--color-text); }
+    .material-tab.active {
+      color: var(--color-text);
+      border-bottom-color: var(--color-gold);
+    }
+    .material-panels { position: relative; }
+    .material-panel { display: none; }
+    .material-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .material-panel-img {
+      border-radius: 20px; overflow: hidden; height: 480px;
+    }
+    .material-panel-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .material-panel-img:hover img { transform: scale(1.04); }
+    .material-panel-info { padding: 20px 0; }
+    .material-panel-info h3 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      margin-bottom: 16px;
+    }
+    .material-panel-info p {
+      color: var(--color-text-muted);
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+    .material-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 32px;
+    }
+    .material-tag {
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+    }
+    @media (max-width: 768px) {
+      .material-panel.active { grid-template-columns: 1fr; }
+      .material-panel-img { height: 280px; }
+      .material-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+
+    /* ── Services carousel ── */
+    .services-carousel-wrap {
+      position: relative;
+    }
+    .services-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .services-carousel::-webkit-scrollbar { display: none; }
+
+    .service-card-full {
+      flex: 0 0 340px;
+      height: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    @media (max-width: 768px) { .service-card-full { flex: 0 0 280px; height: 360px; } }
+    @media (max-width: 480px) { .service-card-full { flex: 0 0 82vw; height: 340px; } }
+
+    .service-card-full:hover { }
+
+    .service-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform .5s ease;
+    }
+    .service-card-full:hover .service-card-bg { transform: scale(1.06); }
+
+    .service-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.08) 100%);
+    }
+
+    .service-card-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 28px;
+    }
+
+    .service-card-icon {
+      width: 48px; height: 48px;
+      background: rgba(208,172,128,.18);
+      border: 1px solid rgba(208,172,128,.4);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      backdrop-filter: blur(6px);
+    }
+    .service-card-icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--color-gold); fill: none; stroke-width: 1.5;
+    }
+    .service-card-full h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      letter-spacing: -.02em;
+      color: #fff;
+    }
+    .service-card-full p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Desktop hover reveal ── */
+    @media (hover: hover) and (min-width: 769px) {
+      .service-card-full p {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin: 0;
+        transition: max-height .45s ease, opacity .35s ease;
+      }
+      .service-card-icon,
+      .service-card-full h3 {
+        transition: transform .4s ease;
+      }
+      .service-card-full:hover .service-card-icon,
+      .service-card-full:hover h3 {
+        transform: translateY(-10px);
+      }
+      .service-card-full:hover p {
+        max-height: 160px;
+        opacity: 1;
+        transition-delay: .05s;
+      }
+    }
+
+    /* gold accent line on hover */
+    .service-card-full::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .service-card-full:hover::after { transform: scaleX(1); }
+
+    /* carousel arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(208,172,128,.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s, transform .2s;
+    }
+    .carousel-arrow:hover {
+      background: #fff;
+      box-shadow: 0 6px 28px rgba(0,0,0,.22);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .carousel-arrow svg {
+      width: 20px; height: 20px;
+      stroke: var(--color-gold); fill: none; stroke-width: 2;
+    }
+    .carousel-arrow.prev { left: -24px; }
+    .carousel-arrow.next { right: -24px; }
+    @media (max-width: 768px) {
+      .carousel-arrow.prev { left: 4px; }
+      .carousel-arrow.next { right: 4px; }
+    }
+
+    /* ── Experience section ── */
+    .experience-strip {
+      background: var(--color-anthracite);
+      padding: 80px 0;
+      position: relative; overflow: hidden;
+    }
+    .experience-strip::before {
+      content: 'SHOWROOM';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 18vw; font-weight: 800; letter-spacing: -.04em;
+      color: rgba(255,255,255,.025);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .experience-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .experience-inner h2 {
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+    .experience-inner p {
+      color: rgba(255,255,255,.65);
+      line-height: 1.85;
+      margin-bottom: 36px;
+    }
+    .experience-checklist {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .experience-check {
+      display: flex; align-items: flex-start; gap: 14px;
+      color: rgba(255,255,255,.8);
+      font-size: .9rem; line-height: 1.5;
+    }
+    .check-dot {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: rgba(208,172,128,.15);
+      border: 1.5px solid var(--color-gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .check-dot::after {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--color-gold);
+      border-radius: 50%;
+    }
+    .experience-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .experience-img {
+      border-radius: 14px; overflow: hidden;
+    }
+    .experience-img:first-child { grid-row: span 2; }
+    .experience-img img {
+      width: 100%; height: 100%; object-fit: cover; min-height: 180px;
+    }
+    @media (max-width: 768px) {
+      .experience-inner { grid-template-columns: 1fr; }
+      .experience-visual { grid-template-columns: 1fr 1fr; }
+      .experience-img:first-child { grid-row: span 1; }
+    }
+
+    /* ── Process steps ── */
+    .visit-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      position: relative;
+      margin-top: 52px;
+    }
+    .visit-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 12%; right: 12%;
+      height: 2px;
+      background: linear-gradient(to right, var(--color-gold), var(--color-gold-light));
+    }
+    @media (max-width: 768px) {
+      .visit-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .visit-steps::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .visit-steps { grid-template-columns: 1fr; }
+    }
+    .visit-step { text-align: center; padding: 0 16px; position: relative; }
+    .visit-step-num {
+      width: 56px; height: 56px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--color-white);
+      position: relative; z-index: 1;
+      border: 3px solid var(--color-white);
+      box-shadow: 0 0 0 2px var(--color-gold);
+    }
+    .visit-step h4 { font-size: 1rem; margin-bottom: 8px; }
+    .visit-step p { font-size: .82rem; color: var(--color-text-muted); line-height: 1.6; margin: 0 auto; max-width: 200px; }
+
+    /* ── Map section ── */
+    .map-section {
+      background: var(--color-cream);
+    }
+    .map-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+    }
+    .map-info h2 { margin-bottom: 20px; }
+    .map-info p { color: var(--color-text-muted); line-height: 1.8; margin-bottom: 36px; }
+    .contact-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .contact-row-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(208,172,128,.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-row-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--color-gold); fill: none; stroke-width: 1.6;
+    }
+    .contact-row-label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 3px; }
+    .contact-row-value { font-size: .95rem; font-weight: 600; }
+    .contact-row-value a { color: inherit; }
+    .map-embed {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow-md);
+      height: 400px;
+    }
+    .map-embed iframe { width: 100%; height: 100%; border: none; }
+    .areas-list {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 24px;
+    }
+    .area-chip {
+      padding: 5px 14px;
+      border-radius: 40px;
+      border: 1px solid var(--color-border);
+      font-size: .75rem; font-weight: 500;
+      color: var(--color-text-muted);
+    }
+    @media (max-width: 900px) {
+      .map-inner { grid-template-columns: 1fr; }
+      .map-embed { height: 300px; }
+    }
+
+    /* ── Map + CTA group ── */
+    .map-cta-group {
+      border-top: 1px solid var(--color-border);
+    }
+    .map-cta-group .map-section {
+      margin-bottom: 0;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: var(--color-anthracite);
+      padding: var(--section-pad) 0;
+      text-align: center;
+    }
+    .cta-section .label { color: var(--color-gold); display: block; margin-bottom: 16px; }
+    .cta-section h2 { color: var(--color-white); margin-bottom: 16px; }
+    .cta-section p { color: rgba(255,255,255,.6); margin: 0 auto 40px; max-width: 560px; line-height: 1.8; }
+    .cta-btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  </style>
+</head>
+<body class="page-showroom">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="site-header" id="top">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-name">MATERIKA</span>
+        <span class="nav-logo-sub">Costruzioni</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+        <li><a href="proposte-immobiliari.html" class="nav-link">Proposte Immobiliari</a></li>
+        <li class="nav-dropdown">
+          <a href="servizi.html" class="nav-link">
+            Servizi
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="nuove-costruzioni.html">Nuove Costruzioni</a>
+            <a href="ristrutturazioni.html">Ristrutturazioni</a>
+            <a href="rifacimento-tetti.html">Rifacimento Tetti</a>
+            <a href="showroom.html" class="active">Showroom</a>
+          </div>
+        </li>
+        <li><a href="contatti.html" class="nav-link nav-cta">Contattaci</a></li>
+      </ul>
+
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" role="dialog" aria-label="Menu mobile">
+  <button class="mobile-nav-close" aria-label="Chiudi">✕</button>
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi Siamo</a>
+  <a href="proposte-immobiliari.html">Proposte Immobiliari</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="showroom.html">Showroom</a>
+  <a href="contatti.html">Contattaci</a>
+</nav>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<section class="page-hero">
+  <div class="hero-slides">
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div style="position:absolute;inset:0; background:linear-gradient(135deg, rgba(30,30,30,.96) 0%, rgba(44,44,44,.70) 100%); z-index:1;"></div>
+
+  <!-- Decorative ring -->
+  <div style="position:absolute; right:8%; top:50%; transform:translateY(-50%); width:260px; height:260px; border:1px solid rgba(184,151,106,.18); border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2;">
+    <div style="width:180px; height:180px; border:1px solid rgba(184,151,106,.12); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <div style="text-align:center; line-height:1.3;">
+        <svg viewBox="0 0 24 24" style="width:40px;height:40px;stroke:rgba(184,151,106,.35);fill:none;stroke-width:1.5;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div style="font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(184,151,106,.3); margin-top:6px;">Showroom</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="position:relative; z-index:1;">
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Servizi</span>
+      <span>›</span>
+      <span style="color:var(--color-gold-light)">Showroom</span>
+    </nav>
+    <h1 class="page-hero-h">Showroom<br>Rovellasca (CO)</h1>
+    <p class="page-hero-sub">Esposizione esclusiva di rivestimenti, pavimenti e serramenti con consulenza architettonica dedicata — un'esperienza immersiva per scegliere con consapevolezza.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ INTRO STRIP ═══════════════════════════ -->
+<div class="intro-strip">
+  <div class="container">
+    <div class="intro-strip-inner">
+      <div class="intro-strip-text reveal">
+        <span class="label">Il Nostro Showroom</span>
+        <h2>Dove ogni scelta diventa<br>la tua firma di stile</h2>
+        <p>Da Materika, le finiture non sono solo dettagli: sono la firma del tuo spazio. Nel nostro showroom a Rovellasca potrai sfogliare centinaia di campioni, confrontare materiali, ricevere il supporto di architetti esperti e visualizzare il risultato finale prima ancora di iniziare i lavori.</p>
+      </div>
+      <div class="intro-strip-stats reveal reveal-delay-1">
+        <div class="intro-stat">
+          <div class="intro-stat-n">3</div>
+          <div class="intro-stat-l">Categorie<br>espositive</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-n">30+</div>
+          <div class="intro-stat-l">Anni di<br>esperienza</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-n">5</div>
+          <div class="intro-stat-l">Province<br>servite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MATERIAL SHOWCASE ═══════════════════════════ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="label">I Materiali in Esposizione</span>
+      <h2>Tre categorie, infinite possibilità</h2>
+      <div class="gold-line"></div>
+      <p>Scopri la nostra selezione curata di materiali premium per ogni ambiente della tua casa</p>
+    </div>
+
+    <div class="material-tabs">
+      <button class="material-tab active" data-tab="rivestimenti">Rivestimenti</button>
+      <button class="material-tab" data-tab="pavimenti">Pavimenti</button>
+      <button class="material-tab" data-tab="serramenti">Serramenti</button>
+    </div>
+
+    <div class="material-panels">
+
+      <!-- Rivestimenti -->
+      <div class="material-panel active" id="tab-rivestimenti">
+        <div class="material-panel-img reveal">
+          <img
+            src="https://www.materikacostruzioni.it/images/materika/interior-design.jpg"
+            alt="Rivestimenti per interni — Showroom Materika"
+            loading="lazy"
+          />
+        </div>
+        <div class="material-panel-info reveal reveal-delay-1">
+          <span class="label">Categoria 01</span>
+          <h3>Rivestimenti</h3>
+          <div class="gold-line"></div>
+          <p style="margin-top:20px;">Dal gres porcellanato al marmo, dalla pietra naturale alle superfici effetto cemento: nel nostro showroom trovi un'ampia selezione di rivestimenti per bagni, cucine e living, adatti a ogni stile — dal contemporaneo al classico di lusso.</p>
+          <div class="material-tags">
+            <span class="material-tag">Gres Porcellanato</span>
+            <span class="material-tag">Marmo</span>
+            <span class="material-tag">Pietra Naturale</span>
+            <span class="material-tag">Effetto Cemento</span>
+            <span class="material-tag">Mosaico</span>
+          </div>
+          <a href="contatti.html" class="btn btn-primary"><span class="btn-glow"></span>Prenota una Visita</a>
+        </div>
+      </div>
+
+      <!-- Pavimenti -->
+      <div class="material-panel" id="tab-pavimenti">
+        <div class="material-panel-img reveal">
+          <img
+            src="https://www.materikacostruzioni.it/images/materika/interior-design-saronno.jpg"
+            alt="Pavimenti — Showroom Materika"
+            loading="lazy"
+          />
+        </div>
+        <div class="material-panel-info reveal reveal-delay-1">
+          <span class="label">Categoria 02</span>
+          <h3>Pavimenti</h3>
+          <div class="gold-line"></div>
+          <p style="margin-top:20px;">Legno, laminato, vinile di nuova generazione e grandi lastre in ceramica: il pavimento giusto cambia la percezione dello spazio. I nostri consulenti ti aiutano a trovare la soluzione ideale per durabilità, estetica e manutenzione.</p>
+          <div class="material-tags">
+            <span class="material-tag">Parquet</span>
+            <span class="material-tag">Laminato</span>
+            <span class="material-tag">LVT / SPC</span>
+            <span class="material-tag">Grandi Lastre</span>
+            <span class="material-tag">Gres 120×60</span>
+          </div>
+          <a href="contatti.html" class="btn btn-primary"><span class="btn-glow"></span>Prenota una Visita</a>
+        </div>
+      </div>
+
+      <!-- Serramenti -->
+      <div class="material-panel" id="tab-serramenti">
+        <div class="material-panel-img reveal">
+          <img
+            src="https://www.materikacostruzioni.it/images/materika/ristrutturazione-rovellasca1.jpg"
+            alt="Serramenti — Showroom Materika"
+            loading="lazy"
+          />
+        </div>
+        <div class="material-panel-info reveal reveal-delay-1">
+          <span class="label">Categoria 03</span>
+          <h3>Serramenti</h3>
+          <div class="gold-line"></div>
+          <p style="margin-top:20px;">Finestre, porte, portoncini e scorrevoli: selezioniamo serramenti che garantiscono alte prestazioni termoacustiche e design ricercato. Lavoriamo con i migliori produttori per offrirti soluzioni su misura, a risparmio energetico certificato.</p>
+          <div class="material-tags">
+            <span class="material-tag">PVC</span>
+            <span class="material-tag">Alluminio</span>
+            <span class="material-tag">Legno-Alluminio</span>
+            <span class="material-tag">Porte Interne</span>
+            <span class="material-tag">Scorrevoli</span>
+          </div>
+          <a href="contatti.html" class="btn btn-primary"><span class="btn-glow"></span>Prenota una Visita</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ SERVICES GRID ═══════════════════════════ -->
+<section class="section" style="background: var(--color-cream);">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="label">I Nostri Servizi</span>
+      <h2>Un supporto completo, dalla scelta alla posa</h2>
+      <div class="gold-line"></div>
+      <p>Il nostro team di architetti ti accompagna in ogni fase, garantendo coerenza estetica e funzionale in ogni dettaglio</p>
+    </div>
+
+    <div class="services-carousel-wrap reveal">
+      <button class="carousel-arrow prev" aria-label="Precedente" onclick="scrollCarousel(-1)">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-arrow next" aria-label="Successivo" onclick="scrollCarousel(1)">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    <div class="services-carousel" id="servicesCarousel">
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/interior-design.jpg')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <h3>Consulenza Architettonica</h3>
+          <p>I nostri architetti ti affiancano nella selezione dei materiali e delle finiture, tenendo conto del tuo stile, del tuo budget e delle esigenze funzionali di ogni ambiente.</p>
+        </div>
+      </div>
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/interior-design-saronno.jpg')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Anteprima Personalizzata</h3>
+          <p>Grazie a strumenti di visualizzazione avanzati, potrai vedere il risultato finale dei materiali scelti nel contesto del tuo progetto, prima ancora di prendere qualsiasi decisione.</p>
+        </div>
+      </div>
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/ristrutturazione-rovellasca1.jpg')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Materiali Esclusivi</h3>
+          <p>Selezioniamo solo prodotti di primissima qualità, con garanzie certificate. Accesso a collezioni esclusive non disponibili nella grande distribuzione.</p>
+        </div>
+      </div>
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/nuovi-appartamenti-Turate.jpg')"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Sopralluogo in Cantiere</h3>
+          <p>Su richiesta, il nostro team effettua sopralluoghi per verificare la corretta integrazione dei materiali nel contesto reale, evitando sorprese in fase di posa.</p>
+        </div>
+      </div>
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/interior-design.jpg'); background-position: 30% center;"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Team Dedicato</h3>
+          <p>Ogni cliente ha un referente unico che lo segue dall'inizio alla fine del progetto. Un solo interlocutore per tutte le tue esigenze.</p>
+        </div>
+      </div>
+
+      <div class="service-card-full">
+        <div class="service-card-bg" style="background-image:url('https://www.materikacostruzioni.it/images/materika/interior-design-saronno.jpg'); background-position: 70% center;"></div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Soluzioni Chiavi in Mano</h3>
+          <p>Dallo showroom al cantiere: i materiali selezionati vengono integrati direttamente nel progetto costruttivo o di ristrutturazione.</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ EXPERIENCE ═══════════════════════════ -->
+<section class="experience-strip">
+  <div class="container">
+    <div class="experience-inner">
+      <div class="reveal">
+        <span class="label" style="color:var(--color-gold);">L'Esperienza Showroom</span>
+        <h2>Ogni materiale racconta una storia</h2>
+        <div class="gold-line"></div>
+        <p style="margin-top:24px;">Il nostro showroom non è un magazzino: è uno spazio progettato per ispirarti. Potrai toccare con mano le superfici, confrontare texture, abbinare colori e avere subito una visione concreta di come sarà la tua casa.</p>
+        <div class="experience-checklist" style="margin-top:32px;">
+          <div class="experience-check"><div class="check-dot"></div><span>Campionature reali da toccare e confrontare</span></div>
+          <div class="experience-check"><div class="check-dot"></div><span>Ambienti allestiti per simulare contesti domestici</span></div>
+          <div class="experience-check"><div class="check-dot"></div><span>Consulenti certificati presenti in showroom</span></div>
+          <div class="experience-check"><div class="check-dot"></div><span>Facile parcheggio e accessibilità da tutta la Lombardia</span></div>
+          <div class="experience-check"><div class="check-dot"></div><span>Preventivi e tempi certi, senza sorprese</span></div>
+        </div>
+        <div style="margin-top:40px;">
+          <a href="contatti.html" class="btn btn-primary"><span class="btn-glow"></span>Prenota la tua visita</a>
+        </div>
+      </div>
+      <div class="experience-visual reveal reveal-delay-2">
+        <div class="experience-img">
+          <img src="https://www.materikacostruzioni.it/images/materika/interior-design.jpg" alt="Showroom Materika — ambiente espositivo" loading="lazy" />
+        </div>
+        <div class="experience-img">
+          <img src="https://www.materikacostruzioni.it/images/materika/interior-design-saronno.jpg" alt="Dettaglio finiture showroom" loading="lazy" />
+        </div>
+        <div class="experience-img">
+          <img src="https://www.materikacostruzioni.it/images/materika/ristrutturazione-rovellasca1.jpg" alt="Materiali in opera" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ HOW A VISIT WORKS ═══════════════════════════ -->
+<section class="section" style="background: var(--color-white);">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="label">Come funziona</span>
+      <h2>La tua visita in 4 passi</h2>
+      <div class="gold-line"></div>
+      <p>Un percorso semplice e piacevole per arrivare alla scelta giusta con fiducia</p>
+    </div>
+
+    <div class="visit-steps">
+      <div class="visit-step reveal">
+        <div class="visit-step-num">1</div>
+        <h4>Prenota</h4>
+        <p>Contattaci per concordare il giorno e l'orario più comodo. Anche in serata su appuntamento.</p>
+      </div>
+      <div class="visit-step reveal reveal-delay-1">
+        <div class="visit-step-num">2</div>
+        <h4>Consulta</h4>
+        <p>Un architetto ti accoglie e raccoglie le esigenze del tuo progetto: stile, budget, tempistiche.</p>
+      </div>
+      <div class="visit-step reveal reveal-delay-2">
+        <div class="visit-step-num">3</div>
+        <h4>Scegli</h4>
+        <p>Esplori i campioni, confronti le opzioni e visualizzi il risultato con i nostri strumenti di rendering.</p>
+      </div>
+      <div class="visit-step reveal reveal-delay-3">
+        <div class="visit-step-num">4</div>
+        <h4>Procedi</h4>
+        <p>Ricevi un preventivo dettagliato e, se scegli Materika, i tuoi materiali entrano direttamente nel cantiere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MAP & CTA GROUP ═══════════════════════════ -->
+<div class="map-cta-group">
+
+<!-- MAP & CONTACT -->
+<section class="section map-section">
+  <div class="container">
+    <div class="map-inner">
+      <div class="reveal">
+        <span class="label">Dove Siamo</span>
+        <h2>Vieni a trovarci<br>a Rovellasca</h2>
+        <div class="gold-line"></div>
+
+        <div class="contact-list" style="margin-top:28px;">
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Indirizzo</div>
+              <div class="contact-row-value">Via XX Settembre 45, 22069 Rovellasca (CO)</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.07 2.82 2 2 0 012.06 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Telefono</div>
+              <div class="contact-row-value"><a href="tel:+390296342233">+39 02 96342233</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Email</div>
+              <div class="contact-row-value"><a href="mailto:info@materikacostruzioni.it">info@materikacostruzioni.it</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-embed reveal reveal-delay-1">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.964!2d9.0453!3d45.6731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVmlhIFhYIFNldHRlbWJyZSA0NSwgMjIwNjkgUm92ZWxsYXNjYSBDTw!5e0!3m2!1sit!2sit!4v1680000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Showroom Materika Costruzioni — Via XX Settembre 45, Rovellasca"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <span class="label reveal">Inizia dal tuo Showroom</span>
+    <h2 class="reveal reveal-delay-1">Prenota la tua visita gratuita</h2>
+    <div class="cta-btn-row reveal reveal-delay-2">
+      <a href="contatti.html" class="btn btn-primary"><span class="btn-glow"></span>Prenota Ora</a>
+      <a href="tel:+390296342233" class="btn btn-outline"><span class="btn-glow"></span>Chiamaci</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /map-cta-group -->
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="nav-logo-name">MATERIKA</span>
+          <span class="nav-logo-sub">Costruzioni</span>
+        </a>
+        <p>Oltre 30 anni di esperienza in costruzioni chiavi in mano e ristrutturazioni nelle province lombarde.</p>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Via XX Settembre 45, 22069 Rovellasca CO</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.07 2.82 2 2 0 012.06 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+390296342233">+39 02 96342233</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@materikacostruzioni.it">info@materikacostruzioni.it</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="proposte-immobiliari.html">Proposte Immobiliari</a></li>
+            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="nuove-costruzioni.html">Nuove Costruzioni</a></li>
+            <li><a href="ristrutturazioni.html">Ristrutturazioni</a></li>
+            <li><a href="rifacimento-tetti.html">Rifacimento Tetti</a></li>
+            <li><a href="showroom.html">Showroom</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Azienda</h4>
+          <ul>
+            <li><a href="chi-siamo.html">La Nostra Storia</a></li>
+            <li><a href="chi-siamo.html#valori">I Nostri Valori</a></li>
+            <li><a href="proposte-immobiliari.html">Progetti Recenti</a></li>
+            <li><a href="contatti.html">Lavora con Noi</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 <strong style="color:rgba(255,255,255,.7)">Materika srl</strong> — P.IVA: 04161360138 | REA: CO-424253 | Cap. soc. 20.000€</span>
+      <a href="#">Privacy &amp; Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" role="dialog" aria-label="Galleria immagini">
+  <span class="lightbox-close" aria-label="Chiudi">✕</span>
+  <img class="lightbox-img" src="" alt="Immagine ingrandita" />
+</div>
+
+<script src="main.js"></script>
+<script>
+  /* ── Services Carousel ── */
+  function scrollCarousel(dir) {
+    const c = document.getElementById('servicesCarousel');
+    const cardWidth = c.querySelector('.service-card-full').offsetWidth + 24;
+    c.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  }
+
+  /* ── Material Tabs ── */
+  const tabs = document.querySelectorAll('.material-tab');
+  const panels = document.querySelectorAll('.material-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
